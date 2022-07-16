@@ -1,19 +1,13 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+  import Cards from './components/Cards.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
+<main>
+  <header class="top-header">
+    <img alt="Desafio Conta Azul Logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
   </header>
-
-  <main>
-    <TheWelcome />
+  <Cards />
   </main>
 </template>
 
@@ -21,20 +15,27 @@ import TheWelcome from './components/TheWelcome.vue'
 @import './assets/base.css';
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
   font-weight: normal;
 }
 
-header {
-  line-height: 1.5;
+.top-header {
+  display: flex;
+  height: 60px;
+  background-color: var(--color-header-background);
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
   display: block;
-  margin: 0 auto 2rem;
+  margin: 0 auto 0rem;
+  height: 100%;
 }
 
 a,
@@ -50,7 +51,7 @@ a,
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 601px) {
   body {
     display: flex;
     place-items: center;
@@ -59,23 +60,10 @@ a,
   #app {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
   }
 
   .logo {
-    margin: 0 2rem 0 0;
+    margin: 0;
   }
 }
 </style>
