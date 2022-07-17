@@ -4,6 +4,9 @@
   --default-text-color: #737C84;
   --app-background: #F1F1F1;
   --divider: #EBEBEB;
+  --blue: #69a3ff;
+  --orange: #ff9632;
+  --red: #ed1946;
 }
 
 /* semantic color variables for this project */
@@ -12,6 +15,9 @@
   --color-text: var(--default-text-color);
   --color-app-background: var(--app-background);
   --color-card-divider: var(--divider);
+  --color-blue: var(--blue);
+  --color-orange: var(--orange);
+  --color-red: var(--red);
 }
 
 *,
