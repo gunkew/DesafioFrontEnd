@@ -5,11 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch Chrome",
-            "request": "launch",
             "type": "chrome",
+            "request": "launch",
+            "name": "vuejs: chrome",
             "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}"
-        }
+            "webRoot": "${workspaceFolder}/src",
+            "sourceMapPathOverrides": {
+              "webpack:///src/*": "${webRoot}/*"
+            }
+        },
     ]
 }

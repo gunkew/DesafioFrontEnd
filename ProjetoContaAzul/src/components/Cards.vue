@@ -581,7 +581,7 @@ import axios from "axios";
         // Nairobi, KE
         this.getCityWeather(-1.28333, 36.833328, 3, true); // lat e lon obtido da lista de cidades do https://openweathermap.org/
         
-        this.update(15, this.updateAllCities);
+        this.update(600, this.updateAllCities);
     }
 }
 </script>
