@@ -5,15 +5,17 @@
             <div class="card-contour">
                 <div class="card-header"> Urubici, BR</div>
                 <div class="content">
-                    <div class="loading"></div>
-                    <div class="card-body" :class="{blue: this.city_1_temperature <= 5, orange: this.city_1_temperature > 5 && this.city_1_temperature <= 25, red: this.city_1_temperature > 25}"> 19º</div>
+                    <div class="loader" v-show="this.city_1_loading === true"> 
+                        <img src="..\assets\loader.svg" alt="carregando" width="125" height="125">
+                    </div>
+                    <div class="card-body" v-show="this.city_1_loading === false" v-if="this.city_1.temp >= 0" :class="{blue: this.city_1.temp <= 5, orange: this.city_1.temp > 5 && this.city_1.temp <= 25, red: this.city_1.temp > 25}"> {{this.city_1.temp}}º</div>
                     <div class="card-details" v-show="city_1_details_visible">
                         <div class="detail-row">
-                            <div class="detail-content"><p>HUMIDITY</p><p class="unit-value">78<span class="unit-of-measurement">%</span></p></div>
-                            <div class="detail-content"><p>PRESSURE</p><p class="unit-value">892<span class="unit-of-measurement">hPA</span></p></div>
+                            <div class="detail-content"><p>HUMIDITY</p><p class="unit-value">{{this.city_1.humidity}}<span class="unit-of-measurement">%</span></p></div>
+                            <div class="detail-content"><p>PRESSURE</p><p class="unit-value">{{this.city_1.pressure}}<span class="unit-of-measurement">hPA</span></p></div>
                         </div>
                     </div>
-                    <div class="card-footer">Updated at 02:48:32 PM</div>
+                    <div class="card-footer">Updated at {{this.city_1.last_update}}</div>
                 </div>
             </div>
         </div>
@@ -21,15 +23,17 @@
             <div class="card-contour">
                 <div class="card-header"> Nuuk, GL</div>
                 <div class="content">
-                    <div class="loading"></div>
-                    <div class="card-body" :class="{blue: this.city_2_temperature <= 5, orange: this.city_2_temperature > 5 && this.city_2_temperature <= 25, red: this.city_2_temperature > 25}"> -4º</div>
+                    <div class="loader" v-show="this.city_2_loading === true"> 
+                        <img src="..\assets\loader.svg" alt="carregando" width="125" height="125">
+                    </div>
+                    <div class="card-body" v-show="this.city_2_loading === false" v-if="this.city_2.temp >= 0" :class="{blue: this.city_2.temp <= 5, orange: this.city_2.temp > 5 && this.city_2.temp <= 25, red: this.city_2.temp > 25}" > {{this.city_2.temp}}º</div>
                     <div class="card-details" v-show="city_2_details_visible">
                         <div class="detail-row">
-                            <div class="detail-content"><p>HUMIDITY</p><p class="unit-value">93<span class="unit-of-measurement">%</span></p></div>
-                            <div class="detail-content"><p>PRESSURE</p><p class="unit-value">491<span class="unit-of-measurement">hPA</span></p></div>
+                            <div class="detail-content"><p>HUMIDITY</p><p class="unit-value">{{this.city_2.humidity}}<span class="unit-of-measurement">%</span></p></div>
+                            <div class="detail-content"><p>PRESSURE</p><p class="unit-value">{{this.city_2.pressure}}<span class="unit-of-measurement">hPA</span></p></div>
                         </div>
                     </div>
-                    <div class="card-footer">Updated at 02:48:32 PM</div>
+                    <div class="card-footer">Updated at {{this.city_2.last_update}}</div>
                 </div>
             </div>
         </div>
@@ -37,15 +41,17 @@
             <div class="card-contour">
                 <div class="card-header"> Nairobi, KE</div>
                 <div class="content">
-                    <div class="loading"></div>
-                    <div class="card-body" :class="{blue: this.city_3_temperature <= 5, orange: this.city_3_temperature > 5 && this.city_3_temperature <= 25, red: this.city_3_temperature > 25}"> 31º</div>
+                    <div class="loader" v-show="this.city_3_loading === true"> 
+                        <img src="..\assets\loader.svg" alt="carregando" width="125" height="125">
+                    </div>
+                    <div class="card-body" v-show="this.city_3_loading === false" v-if="this.city_3.temp >= 0" :class="{blue: this.city_3.temp <= 5, orange: this.city_3.temp > 5 && this.city_3.temp <= 25, red: this.city_3.temp > 25}"> {{this.city_3.temp}}º</div>
                     <div class="card-details" v-show="city_3_details_visible">
                         <div class="detail-row">
-                            <div class="detail-content"><p>HUMIDITY</p><p class="unit-value">28<span class="unit-of-measurement">%</span></p></div>
-                            <div class="detail-content"><p>PRESSURE</p><p class="unit-value">1128<span class="unit-of-measurement">hPA</span></p></div>
+                            <div class="detail-content"><p>HUMIDITY</p><p class="unit-value">{{this.city_3.humidity}}<span class="unit-of-measurement">%</span></p></div>
+                            <div class="detail-content"><p>PRESSURE</p><p class="unit-value">{{this.city_3.pressure}}<span class="unit-of-measurement">hPA</span></p></div>
                         </div>
                     </div>
-                    <div class="card-footer">Updated at 02:48:32 PM</div>
+                    <div class="card-footer">Updated at {{this.city_3.last_update}}</div>
                 </div>
             </div>
         </div>
@@ -69,6 +75,15 @@
 
 .red {
     color: #ed1946;
+}
+
+.loader {
+    width: 100%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    height: 12rem;
+    align-items: center;
 }
 
 .container-wrapper {
@@ -118,7 +133,7 @@
 
 .unit-value {
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .unit-of-measurement {
@@ -242,15 +257,38 @@
 </style>
 
 <script>
+import { defineComponent, onMounted, ref } from "vue";
+import axios from "axios";
+ const cidade_1 = ref([]);
     export default {
+    name: 'Cards',
     data() {
         return {
             city_1_details_visible: false,
             city_2_details_visible: false,
             city_3_details_visible: false,
-            city_1_temperature: 19,
-            city_2_temperature: -4,
-            city_3_temperature: 31
+            city_1_loading: true,
+            city_2_loading: true,
+            city_3_loading: true,
+            city_1: {
+                temp: 0,
+                humidity: 0,
+                pressure: 0,
+                last_update: null
+            },
+            city_2: {
+                temp: 0,
+                humidity: 0,
+                pressure: 0
+            },
+            city_3: {
+                temp: 0,
+                humidity: 0,
+                pressure: 0
+            },
+            timer_city_1: [],
+            timer_city_2: [],
+            timer_city_3: [],
         }
     },
     methods: {
@@ -271,15 +309,94 @@
                 this.city_3_details_visible = true;
             }
         },
-        weather: function() {
-            $.ajax({
-                url: 'https://api.openweathermap.org/data/2.5/weather?lat=57&lon=-2.15&appid=80c9a5feddbd8903bd2eb31e52b61e30&units=metric',
-                method: 'GET',
-                success: function(data) {
-                this.comments = data;
+        sleep: function(ms){
+            return new Promise(resolve => setTimeout(resolve, ms));
+        },
+        update: function(duration, method){
+
+            var timer = duration, minutes, seconds;
+
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                console.log("próxima atualização das cidades em " + minutes + ":" + seconds);
+
+                if (--timer < 0) {
+                    method();
+                    timer = duration;
                 }
-            });
+            }, 1000);
+            
+        },
+        async updateAllCities(){
+            const randomNumber = Math.floor(Math.random() * 8) + 1;
+            var timer_city1 = 3000;
+            var timer_city2 = 5000;
+            var timer_city3 = 7000;
+            this.city_1_loading = true;
+            this.city_2_loading = true;
+            this.city_3_loading = true;
+
+            await this.sleep(1000);
+            this.getCityWeather(-28.014999, -49.591671, 1);
+
+            await this.sleep(2000);
+            this.getCityWeather(64.183472, -51.721569, 2);
+
+            await this.sleep(1000);
+            this.getCityWeather(-1.28333, 36.833328, 3);
+        },
+        async getCityWeather(lat, lon, citySelected) {
+            
+
+            await axios.get('https://api.openweathermap.org/data/2.5/weather?lat='+ lat + '&lon=' + lon + '&lang=pt_br&appid=80c9a5feddbd8903bd2eb31e52b61e30&units=metric')
+            .then((response) => {
+                const weather = response.data == null && !response.data.hasOwnProperty('data') ? null : response.data;
+                
+                console.log('Atualizando a cidade: ' + citySelected);
+                //console.log(weather);
+                if (weather != null && citySelected == 1) {
+                    this.city_1.temp = weather.main.temp.toFixed(0);
+                    this.city_1.humidity = weather.main.humidity;
+                    this.city_1.pressure = weather.main.pressure;
+                    this.city_1.last_update = new Date().toLocaleTimeString("en");
+                    this.city_1_loading = false;
+                }
+                if (weather != null && citySelected == 2) {
+                    this.city_2.temp = weather.main.temp.toFixed(0);
+                    this.city_2.humidity = weather.main.humidity;
+                    this.city_2.pressure = weather.main.pressure;
+                    this.city_2.last_update = new Date().toLocaleTimeString("en");
+                    this.city_2_loading = false;
+                }
+                if (weather != null && citySelected == 3) {
+                    this.city_3.temp = weather.main.temp.toFixed(0);
+                    this.city_3.humidity = weather.main.humidity;
+                    this.city_3.pressure = weather.main.pressure;
+                    this.city_3.last_update = new Date().toLocaleTimeString("en");
+                    this.city_3_loading = false;
+                }
+            })
+            .catch(error => (
+                console.log(error)
+            ));
         }
+    },
+    mounted() {
+        // Urubici, BR
+        this.getCityWeather(-28.014999, -49.591671, 1);  // lat e lon obtido da lista de cidades do https://openweathermap.org/
+        
+        // Nuuk, GL
+        this.getCityWeather(64.183472, -51.721569, 2); // lat e lon obtido da lista de cidades do https://openweathermap.org/
+        
+        // Nairobi, KE
+        this.getCityWeather(-1.28333, 36.833328, 3); // lat e lon obtido da lista de cidades do https://openweathermap.org/
+        
+        this.update(20, this.updateAllCities);//1 * 60
     }
 }
 </script>
