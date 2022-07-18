@@ -19,6 +19,8 @@ Este projeto foi desenvolvido para o Desafio FrontEnd da Conta Azul
 ### Para macOS:
 [NodeLTS](https://nodejs.org/dist/v16.16.0/node-v16.16.0.pkg)
 
+### Acesse o diretório raiz do projeto no console
+### cd .\ProjetoContaAzul\
 
 ### Instalar as dependências do Projeto
 
