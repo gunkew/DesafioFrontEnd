@@ -12,6 +12,14 @@ Este projeto foi desenvolvido para o Desafio FrontEnd da Conta Azul
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
 
+### Pré-requisitos
+### Node.js Latest LTS Version: 16.16.0 (includes npm 8.11.0)
+### Para Windows:
+[NodeLTS](https://nodejs.org/dist/v16.16.0/node-v16.16.0-x64.msi)
+### Para macOS:
+[NodeLTS](https://nodejs.org/dist/v16.16.0/node-v16.16.0.pkg)
+
+
 ### Instalar as dependências do Projeto
 
 npm install
