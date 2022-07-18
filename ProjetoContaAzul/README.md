@@ -1,29 +1,40 @@
+### Desenvolvido por Anderson Rugo Santos
+### Data: 17/07/2022
+### Vue 3.2
+### Contato: anderson.rugo@gmail.com | anderson.s.w@hotmail.com
+
 # ProjetoContaAzul
 
-This template should help get you started developing with Vue 3 in Vite.
+Este projeto foi desenvolvido para o Desafio FrontEnd da Conta Azul
 
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+### Instalar as dependências do Projeto
 
-## Project Setup
-
-```sh
 npm install
-```
 
-### Compile and Hot-Reload for Development
+### Comando para executar o projeto em debug ou desenvolvimento, compilar e recarregamento rápido
 
-```sh
 npm run dev
-```
 
-### Compile and Minify for Production
+### Comando para deploy, compilar e minificar para Produção
 
-```sh
 npm run build
-```
+
+### Após o server estar rodando/executando, abra o navegador na url http://localhost:3000/
+### A porta padrão configurada é 3000, porém, se algo der errado verifique o arquivo launch.json e a porta recomendada 
+
+### Ao abrir o projeto no navegador, para visualizar alguns logs da mecânica do projeto, acesse F12.
+### O console está exibindo o timer de reload dos dados, assim como a fonte desses dados (cache ou https://openweathermap.org/)
+### O cache possui validade de 10 minutos. E somente é lido caso recarregue a página(F5)
+### Ao recarregar a página após vários reloads, o cache lido é o último gravado com sucesso
+
+### Se forçar um erro via console durante a requisição no openweathermap.org (alterar lat ou long para null na url), aparecerá nos cartões a visão de erro.
+### A visão de erro possui também um botão para forçar recarregar os dados daquele determinado cartão.
+
+### Qualquer dúvida ou problema, estou à disposição!
+
+### Obrigado
